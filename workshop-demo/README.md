@@ -1,0 +1,67 @@
+# Workshop — GitHub Copilot Customization ใน VS Code
+
+guide สำหรับผู้เรียน 👋 ใช้ feature **"ระบบ Login"** เป็น demo ตลอด workshop
+
+---
+
+## 1. Workshop นี้สอนอะไร (5 Concepts)
+
+| # | Concept | คืออะไร |
+|---|---------|---------|
+| 1 | **Custom Instructions** | กฎ/บริบทที่ Copilot โหลดอัตโนมัติตามไฟล์ที่กำลังทำงาน (`.github/instructions/*.instructions.md` + `copilot-instructions.md`) |
+| 2 | **Custom Prompts** | คำสั่งสำเร็จรูปเรียกด้วย `/` เช่น `/create-tc` (`.github/prompts/*.prompt.md`) |
+| 3 | **Skills** | ชุดขั้นตอนที่ Copilot ทำตามเป็น workflow (`.github/skills/*/SKILL.md`) |
+| 4 | **MCP** | ต่อ Copilot เข้ากับเครื่องมือภายนอก — workshop นี้ใช้ **Trello** (`.mcp.json`) |
+| 5 | **Agents** | ให้ Copilot ทำงานหลายขั้นตอนต่อเนื่องเองในโหมด Agent |
+
+---
+
+## 2. File Structure ของ workshop-demo/
+
+```
+workshop-demo/
+├── README.md              ← ไฟล์นี้ — guide ผู้เรียน
+├── SETUP.md               ← ขั้นตอน setup ก่อนเริ่ม
+├── requirements-notes.md  ← requirement ดิบจาก interview (จุดเริ่มต้น workflow)
+├── user-story.md          ← Statement + Conditions (Business Rule / Constraint)
+├── user-flow.md           ← Mermaid flow ทุก logic path + Field Definitions
+├── scenarios.md           ← (สร้างโดย skill) index ของ scenario ทั้งหมด
+├── scenario-[id]-[name].md← (สร้างโดย skill create-scenario) Logic Path + AC
+└── business-tc.md         ← Flat list Test Case map กับ AC
+```
+
+> instruction files อยู่ที่ `.github/instructions/` และจะ **โหลดอัตโนมัติ** ตาม `applyTo` glob เมื่อเปิดไฟล์ที่ตรง pattern
+
+---
+
+## 3. Exercise Flow (4 ข้อ)
+
+### Ex1 — Custom Instructions โหลดอัตโนมัติ
+1. ใช้ skill `create-scenario` หรือเปิดไฟล์ `scenario-01-*.md`
+2. เปิด Copilot Chat → สังเกตที่ panel **References**
+3. จะเห็น `scenario.instructions.md` ถูกโหลดเข้ามาเองเพราะ filename ตรง glob `**/*scenario*.md`
+
+### Ex2 — Custom Prompt `/create-tc`
+1. พิมพ์ `/create-tc` ใน Copilot Chat
+2. ใส่ scenario ID (เช่น `01`)
+3. ดู Copilot อ่าน scenario → สร้าง TC ตาม format → append ลง `business-tc.md`
+
+### Ex3 — Custom Prompt `/review-coverage`
+1. พิมพ์ `/review-coverage`
+2. ดู coverage report เป็น checklist ✅ / ❌ และ % coverage เทียบกับ logic path ใน user-flow
+
+### Ex4 — MCP Trello
+1. ตรวจว่าใส่ key ใน `.env` แล้ว (ดู SETUP.md)
+2. สั่ง Copilot (โหมด Agent): "สร้าง Trello card จากแต่ละ TC ใน business-tc.md"
+3. ดู card ถูกสร้างบน Trello board ผ่าน MCP
+
+---
+
+## 4. Tips — Debug เมื่อ Instruction ไม่ Load
+
+- เช็ค `.vscode/settings.json` ว่า `github.copilot.chat.codeGeneration.useInstructionFiles: true`
+- เช็ค `applyTo` glob ใน frontmatter ว่าตรงกับ **ชื่อไฟล์ที่กำลังเปิด** จริง ๆ
+- ชื่อไฟล์ scenario ต้องมีคำว่า `scenario` (glob = `**/*scenario*.md`)
+- เปิด Copilot Chat แล้วดู panel **References** — ถ้าไม่ขึ้น instruction แปลว่า glob ไม่ match
+- reload VS Code window (`Cmd/Ctrl+Shift+P` → "Developer: Reload Window") หลังแก้ settings
+- ต้อง sign in ด้วย GitHub account ที่มี Copilot license

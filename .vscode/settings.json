@@ -1,0 +1,12 @@
+{
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.promptFiles.enabled": true,
+  "github.copilot.chat.skills.enabled": true,
+  "github.copilot.chat.agent.enabled": true,
+  "github.copilot.chat.reviewSelection.instructions": [
+    { "file": ".github/instructions/scenario.instructions.md" },
+    { "file": ".github/instructions/tech-spec.instructions.md" },
+    { "file": ".github/instructions/business-tc.instructions.md" }
+  ],
+  "chat.mcp.access": "all"
+}
