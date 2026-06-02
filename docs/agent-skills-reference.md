@@ -5,6 +5,7 @@
 > ตรวจสอบล่าสุด: มิ.ย. 2026
 >
 > 📝 ถ้าต้องการ **สคริปต์ demo หน้า class** (บทพูด 2 นาที) ดู [prompt-vs-skill.md](prompt-vs-skill.md) แทน
+> 🧠 เรื่อง **context window** (อะไรโหลดตอนไหน, สะสมมั้ย, `context: fork`) ดู [context-loading.md](context-loading.md)
 
 ---
 
