@@ -83,6 +83,7 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 4. **เชื่อมโยง:** ตอนนี้เรามี scenario แล้ว → พร้อมสร้าง TC ใน session ถัดไป
 
 > ⚠️ scenario files ไม่ได้เตรียมไว้ล่วงหน้า — ผู้เรียนสร้างเองตรงนี้ คือหัวใจของ demo
+> 🧩 **Bonus (กลุ่ม dev):** โชว์ skill `tc-audit` ที่มีครบทั้ง `scripts/` `references/` `assets/` — ให้เห็นว่า skill ไม่ใช่แค่ SKILL.md ไฟล์เดียว (ดู [agent-skills-reference.md](agent-skills-reference.md) + README Bonus)
 
 ---
 

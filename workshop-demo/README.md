@@ -69,6 +69,21 @@ workshop-demo/
 
 > 💡 Bonus (ถ้าเหลือเวลา): สั่งต่อให้จัด issue เข้า **GitHub Projects board** เป็นคอลัมน์ตาม Label
 
+### 🧩 Bonus — Anatomy of a Skill (`tc-audit`) · *เสริม Session 3*
+สำหรับคนที่อยากเห็นว่า skill ใช้ได้มากกว่า SKILL.md ไฟล์เดียว — skill `tc-audit` มีครบทั้ง 4 ส่วน
+```
+.github/skills/tc-audit/
+├── SKILL.md      → สั่งลำดับงาน        ├── references/  → กฎ format + label
+├── scripts/      → โค้ดตรวจจริง (.py)   └── assets/      → เทมเพลตรายงาน/issue
+```
+1. เรียก `/tc-audit` ในโหมด Agent (หรือสั่ง "ตรวจ business-tc.md ด้วย skill tc-audit")
+2. ดู Agent **รัน `scripts/check_tc.py`** → ได้ JSON สรุป error/warning
+3. Agent อ่าน `references/` ตีความ → ออกรายงานตาม `assets/audit-report-template.md`
+4. ลองแก้ `business-tc.md` ให้ผิด (เปลี่ยน label เป็น `Positive` หรือทำ TC-ID ซ้ำ) แล้วรันใหม่ → เห็นมันจับได้
+
+> เทียบกับ Ex (skill `create-scenario`) ที่เป็น **SKILL.md ไฟล์เดียว** → เห็นชัดว่า skill scale ได้แค่ไหน
+> รายละเอียดแต่ละส่วนต่างกันยังไง ดู [agent-skills-reference.md](../docs/agent-skills-reference.md)
+
 ---
 
 ## 4. Tips — Debug เมื่อ Instruction ไม่ Load

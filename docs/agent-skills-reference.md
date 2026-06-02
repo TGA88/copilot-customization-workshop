@@ -38,13 +38,31 @@
 
 ตัวอย่างไฟล์ประกอบ: scripts (เช่น `.py`, `.sh`, `.js`), templates, example/sample directories, reference markdown, data/assets
 
+### ตัวอย่างจริงใน repo นี้: `tc-audit`
+
+skill `.github/skills/tc-audit/` สาธิตครบทั้ง 4 ส่วน (รันได้จริง):
+
 ```
-.github/skills/create-scenario/
-├── SKILL.md            ← entrypoint (frontmatter + ขั้นตอน)
-├── scripts/            ← (ออปชัน) สคริปต์ที่ skill เรียกใช้
-├── templates/          ← (ออปชัน) เทมเพลตผลลัพธ์
-└── examples/           ← (ออปชัน) ตัวอย่างอ้างอิง
+.github/skills/tc-audit/
+├── SKILL.md                        ← "สมอง": สั่งลำดับงาน (instructions)
+├── scripts/
+│   └── check_tc.py                 ← โค้ดที่รันจริง: parse + ตรวจ format → JSON
+├── references/
+│   ├── tc-format.md                ← ความรู้: กฎ format TC
+│   └── label-guide.md              ← ความรู้: นิยาม Label 3 ค่า
+└── assets/
+    ├── audit-report-template.md    ← เทมเพลตรายงานผล
+    └── github-issue-template.md    ← เทมเพลต body ของ issue
 ```
+
+**แต่ละส่วนต่างกันยังไง (หัวใจที่ต้องเข้าใจ):**
+
+| ส่วน | บทบาท | ทำไมต้องแยกออกมา |
+|---|---|---|
+| `SKILL.md` | orchestrator — บอกว่าทำ 1→2→3→4 ยังไง | เป็น entrypoint, โหลดตอนถูกเรียก |
+| `scripts/` | งาน **ตายตัว ตรวจซ้ำได้** (parse, นับ, validate) | โค้ดแม่นกว่าให้โมเดลเดา → ผลถูกทุกครั้ง |
+| `references/` | **ความรู้/กฎ** ที่อ่านเมื่อต้องใช้ | แยกกฎออกจาก logic → แก้กฎไม่ต้องแตะ SKILL.md |
+| `assets/` | **เทมเพลต** ไว้เติมแล้วส่งออก | คุม format ผลลัพธ์ให้คงที่ |
 
 ---
 
