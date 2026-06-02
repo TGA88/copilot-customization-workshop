@@ -15,7 +15,7 @@
 | 1 | Custom Instructions | `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md` |
 | 2 | Custom Prompts | `.github/prompts/*.prompt.md` |
 | 3 | Skills | `.github/skills/create-scenario/SKILL.md` |
-| 4 | MCP (Trello) | `.mcp.json`, `.env` |
+| 4 | MCP (GitHub) | `.mcp.json` |
 | 5 | Agents | โหมด Agent ใน Copilot Chat |
 
 ---
@@ -40,7 +40,7 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
    - ติดตั้ง extension `github.copilot` + `github.copilot-chat`
    - Sign in GitHub (มี Copilot license)
    - เปิด folder root ใน VS Code
-   - ใส่ Trello key ใน `.env` (ทำล่วงหน้าได้)
+   - sign in GitHub (Remote MCP ใช้ OAuth — ไม่ต้องใส่ key) + เตรียม repo เป้าหมาย
 2. เช็ค checklist ท้าย SETUP.md ว่าผ่านทุกข้อ
 3. **Checkpoint:** เปิด Copilot Chat ได้ + เห็นไอคอน active
 
@@ -100,15 +100,17 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 
 ---
 
-### Session 5 — MCP: ต่อกับ Trello (30 นาที) · *Concept 4 + 5*
+### Session 5 — MCP: ต่อกับ GitHub (30 นาที) · *Concept 4 + 5*
 **เป้า:** ให้ Copilot ใช้เครื่องมือภายนอก + ทำงานต่อเนื่องในโหมด Agent
 
-1. **บรรยาย MCP:** เปิด [.mcp.json](../.mcp.json) อธิบาย server `trello` + env key
-2. ตรวจว่า `.env` มี key จริง (ทำใน Session 0) → โหมด Agent มองเห็น MCP server
+1. **บรรยาย MCP:** เปิด [.mcp.json](../.mcp.json) อธิบาย server `github` (Remote + OAuth ไม่ต้องใส่ key)
+2. ตรวจว่า sign in GitHub แล้ว (ทำใน Session 0) → โหมด Agent มองเห็น MCP server + มี repo เป้าหมาย
 3. **▶️ Exercise 4:** สั่ง Copilot (โหมด Agent):
-   > "อ่าน business-tc.md แล้วสร้าง Trello card หนึ่งใบต่อหนึ่ง TC"
-   - ดู Copilot เรียก MCP tool สร้าง card บน Trello board จริง
+   > "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo <owner>/<repo>"
+   - ดู Copilot เรียก MCP tool สร้าง issue บน GitHub จริง (ใส่ label ตาม Label ของ TC ได้)
 4. **สรุป Agents:** จุดต่างจากโหมด chat ปกติ — Agent วางแผน + เรียก tool หลายขั้นเองได้
+
+> 💡 Bonus (ถ้าเหลือเวลา): จัด issue เข้า **GitHub Projects board** เป็นคอลัมน์ตาม Label
 
 ---
 
@@ -139,8 +141,8 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 
 ## ✅ Checklist ผู้สอนก่อนเริ่ม
 
-- [ ] ทดสอบ run ทุก exercise ด้วยตัวเองจนจบ (โดยเฉพาะ MCP Trello)
-- [ ] เตรียม Trello board เปล่าไว้ demo Ex4
+- [ ] ทดสอบ run ทุก exercise ด้วยตัวเองจนจบ (โดยเฉพาะ MCP GitHub)
+- [ ] เตรียม repo เป้าหมายเปล่า ๆ ไว้ demo Ex4 (issue จะถูกสร้างที่นี่)
 - [ ] เตรียม key สำรอง / บัญชี Copilot สำรอง เผื่อผู้เรียนติดปัญหา
 - [ ] เตรียมตัวอย่าง "Copilot แบบ default ทำพัง" ไว้เปิด Session 1
 - [ ] เผื่อเวลา buffer ตอน Setup (มักช้าสุด)

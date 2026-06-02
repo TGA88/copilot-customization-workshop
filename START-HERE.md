@@ -4,7 +4,7 @@
 
 ```
 ฉันกำลังเตรียม workshop สอนการใช้ GitHub Copilot Customization ใน VS Code
-ครอบคลุม: Custom Instructions, Custom Prompts, Skills, MCP (Trello)
+ครอบคลุม: Custom Instructions, Custom Prompts, Skills, MCP (GitHub)
 โดยใช้ workflow ของทีม: Requirements → User Story → Development
 workshop demo ใช้ feature "ระบบ Login" เป็นตัวอย่าง
 
@@ -129,11 +129,14 @@ steps:
 TASK 4 — อัปเดต .mcp.json และ .env.example
 ─────────────────────────────────────
 
-.mcp.json มี placeholder อยู่แล้ว ให้ตรวจว่า JSON valid
-และเพิ่ม comment บน .env.example อธิบาย step การขอ key:
-1. ไปที่ https://trello.com/app-key → copy API Key
-2. กด "Generate a Token" → copy Token
-3. ใส่ใน .env (copy จาก .env.example)
+.mcp.json ตั้งค่า GitHub MCP server แบบ Remote (hosted) ผ่าน OAuth:
+  { "mcpServers": { "github": { "type": "http",
+    "url": "https://api.githubcopilot.com/mcp/" } } }
+ให้ตรวจว่า JSON valid
+และเพิ่ม comment บน .env.example อธิบายว่า:
+1. Remote MCP ใช้ OAuth → ไม่ต้องใส่ key (authorize ครั้งแรกตอน Agent เรียก tool)
+2. (ทางเลือก) ถ้าใช้ Local Docker แทน ให้สร้าง PAT scope `repo`
+   ที่ https://github.com/settings/tokens แล้วใส่ GITHUB_PERSONAL_ACCESS_TOKEN ใน .env
 
 ─────────────────────────────────────
 TASK 5 — สร้าง workshop-demo/README.md และ SETUP.md
@@ -146,14 +149,14 @@ workshop-demo/README.md — guide สำหรับผู้เรียน:
    Ex1: เปิด scenario-01.md → สังเกต instruction โหลดอัตโนมัติใน References
    Ex2: /create-tc → ใส่ scenario ID → ดู TC ที่ Copilot สร้าง
    Ex3: /review-coverage → ดู coverage report
-   Ex4: MCP Trello → สั่ง Copilot สร้าง card จาก business-tc.md
+   Ex4: MCP GitHub → สั่ง Copilot สร้าง Issue จาก business-tc.md
 4. Tips การ debug เมื่อ instruction ไม่ load
 
 workshop-demo/SETUP.md — guide setup ก่อน workshop:
 1. ติดตั้ง VS Code extension: github.copilot + github.copilot-chat
 2. Sign in GitHub account ที่มี Copilot license
 3. เปิด folder นี้ใน VS Code → .vscode/settings.json จะ apply อัตโนมัติ
-4. ใส่ TRELLO_API_KEY และ TRELLO_TOKEN ใน .env (copy จาก .env.example)
+4. sign in GitHub (Remote MCP ใช้ OAuth ไม่ต้องใส่ key) + เตรียม repo เป้าหมาย
 5. verify: เปิด Copilot Chat → เปิด scenario file → ดู References panel
 
 ─────────────────────────────────────

@@ -3,7 +3,7 @@
 ## Project Overview
 
 โปรเจกต์นี้เป็น **workshop สอนการใช้ GitHub Copilot Customization ใน VS Code**
-ครอบคลุม 5 concepts: Custom Instructions, Custom Prompts, Skills, MCP (Trello), Agents
+ครอบคลุม 5 concepts: Custom Instructions, Custom Prompts, Skills, MCP (GitHub), Agents
 ใช้ feature "ระบบ Login" เป็น demo ตลอด workshop
 
 ## Tech Stack
