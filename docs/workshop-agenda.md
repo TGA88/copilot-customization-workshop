@@ -96,7 +96,7 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 2. **▶️ Exercise 3 — `/review-coverage`:**
    - พิมพ์ `/review-coverage`
    - Copilot map logic path ↔ TC → output checklist ✅/❌ + % coverage
-3. **อภิปราย:** ความต่างระหว่าง prompt (งานครั้งเดียวจบ) กับ skill (workflow หลายขั้น)
+3. **อภิปราย:** ความต่าง prompt vs skill — **เรียกด้วย `/` ได้ทั้งคู่** แต่ prompt = template สั่งครั้งเดียว (manual เท่านั้น) ส่วน skill = workflow หลายขั้น + bundle ไฟล์ได้ + Agent หยิบใช้เองอัตโนมัติ (ดู [agent-skills-reference.md](agent-skills-reference.md))
 
 ---
 
