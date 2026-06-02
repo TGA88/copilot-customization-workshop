@@ -113,8 +113,9 @@
 🗣️ "ทีนี้เราจะใช้ **โหมด Agent** — ต่างจาก chat ปกติตรงที่ Agent วางแผนเองและเรียก tool หลายครั้งต่อเนื่องได้"
 
 🎬 **▶️ Exercise 4:** สลับเป็นโหมด Agent แล้วสั่ง:
-> "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo <owner>/<repo>"
-🎬 ให้ดู Copilot เรียก MCP tool สร้าง issue บน repo จริง (ระบุ repo เป้าหมายให้ชัด)
+> "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo `TGA88/copilot-workshop-issues-demo`"
+🎬 ให้ดู Copilot เรียก MCP tool สร้าง issue บน repo จริง
+🗣️ (ถ้าจัด hands-on) "ใครจะลองเองให้เปลี่ยนชื่อ repo เป็นของตัวเองนะครับ ไม่งั้น issue จะไปกองรวมกันที่ repo ผม"
 
 🗣️ "เห็นไหมครับ มันอ่านไฟล์ของเรา แล้วเอาไปสร้าง issue บน GitHub จริง ๆ นี่คือ MCP + Agent ทำงานร่วมกัน — ข้อมูลจาก workflow ของเราไหลออกไปสู่เครื่องมือที่ทีมใช้จริง"
 

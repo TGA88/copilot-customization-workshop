@@ -51,8 +51,10 @@ workshop-demo/
 2. ดู coverage report เป็น checklist ✅ / ❌ และ % coverage เทียบกับ logic path ใน user-flow
 
 ### Ex4 — MCP GitHub
-1. ตรวจว่า sign in GitHub แล้ว + มี repo เป้าหมาย (ดู SETUP.md)
-2. สั่ง Copilot (โหมด Agent): "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo <owner>/<repo>"
+1. ตรวจว่า sign in GitHub แล้ว + รู้ repo เป้าหมาย (ดู SETUP.md)
+2. สั่ง Copilot (โหมด Agent):
+   > "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo `TGA88/copilot-workshop-issues-demo`"
+   - 🛠️ **แบบ hands-on:** เปลี่ยน repo เป็น `<username-ของคุณ>/<repo-ของคุณ>`
 3. ดู issue ถูกสร้างบน GitHub ผ่าน MCP (มี label ตาม Label ของ TC ได้)
 
 > 💡 Bonus (ถ้าเหลือเวลา): สั่งต่อให้จัด issue เข้า **GitHub Projects board** เป็นคอลัมน์ตาม Label

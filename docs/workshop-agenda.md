@@ -40,7 +40,7 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
    - ติดตั้ง extension `github.copilot` + `github.copilot-chat`
    - Sign in GitHub (มี Copilot license)
    - เปิด folder root ใน VS Code
-   - sign in GitHub (Remote MCP ใช้ OAuth — ไม่ต้องใส่ key) + เตรียม repo เป้าหมาย
+   - sign in GitHub (Remote MCP ใช้ OAuth — ไม่ต้องใส่ key); repo เป้าหมาย demo ใช้ของผู้สอน (hands-on ค่อยสร้างเอง)
 2. เช็ค checklist ท้าย SETUP.md ว่าผ่านทุกข้อ
 3. **Checkpoint:** เปิด Copilot Chat ได้ + เห็นไอคอน active
 
@@ -106,8 +106,9 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 1. **บรรยาย MCP:** เปิด [.mcp.json](../.mcp.json) อธิบาย server `github` (Remote + OAuth ไม่ต้องใส่ key)
 2. ตรวจว่า sign in GitHub แล้ว (ทำใน Session 0) → โหมด Agent มองเห็น MCP server + มี repo เป้าหมาย
 3. **▶️ Exercise 4:** สั่ง Copilot (โหมด Agent):
-   > "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo <owner>/<repo>"
+   > "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo `TGA88/copilot-workshop-issues-demo`"
    - ดู Copilot เรียก MCP tool สร้าง issue บน GitHub จริง (ใส่ label ตาม Label ของ TC ได้)
+   - 🎓 default = ผู้สอน demo เข้า repo กลางนี้ · 🛠️ hands-on = ผู้เรียนเปลี่ยนเป็น repo ตัวเอง
 4. **สรุป Agents:** จุดต่างจากโหมด chat ปกติ — Agent วางแผน + เรียก tool หลายขั้นเองได้
 
 > 💡 Bonus (ถ้าเหลือเวลา): จัด issue เข้า **GitHub Projects board** เป็นคอลัมน์ตาม Label
@@ -142,7 +143,8 @@ requirements-notes → user-story → user-flow → scenario → business-tc →
 ## ✅ Checklist ผู้สอนก่อนเริ่ม
 
 - [ ] ทดสอบ run ทุก exercise ด้วยตัวเองจนจบ (โดยเฉพาะ MCP GitHub)
-- [ ] เตรียม repo เป้าหมายเปล่า ๆ ไว้ demo Ex4 (issue จะถูกสร้างที่นี่)
+- [ ] สร้าง repo กลาง `TGA88/copilot-workshop-issues-demo` (มี README, เปิด Issues) ไว้ demo Ex4
+- [ ] (ถ้าจัด hands-on) แจ้งผู้เรียนให้สร้าง repo เปล่าของตัวเองล่วงหน้า
 - [ ] เตรียม key สำรอง / บัญชี Copilot สำรอง เผื่อผู้เรียนติดปัญหา
 - [ ] เตรียมตัวอย่าง "Copilot แบบ default ทำพัง" ไว้เปิด Session 1
 - [ ] เผื่อเวลา buffer ตอน Setup (มักช้าสุด)
