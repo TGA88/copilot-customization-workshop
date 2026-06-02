@@ -34,23 +34,33 @@ workshop-demo/
 
 ---
 
-## 3. Exercise Flow (4 ข้อ)
+## 3. Exercise Flow (5 กิจกรรม — เรียงตามลำดับสอน)
 
-### Ex1 — Custom Instructions โหลดอัตโนมัติ
-1. ใช้ skill `create-scenario` หรือเปิดไฟล์ `scenario-01-*.md`
+> ลำดับตรงกับ Session ใน [workshop-agenda.md](../docs/workshop-agenda.md) (concept order **1→3→2→4/5**)
+> เลข Ex ตรงกับ agenda/speaker-notes — ตัว `create-scenario` เป็น skill จึงไม่มีเลข Ex แต่เป็น **กิจกรรมเต็มตัว** (อย่ามองข้าม)
+
+### Ex1 — Custom Instructions โหลดอัตโนมัติ · *Session 2*
+1. เปิดไฟล์ใด ๆ ที่มีคำว่า `scenario` ในชื่อ
 2. เปิด Copilot Chat → สังเกตที่ panel **References**
 3. จะเห็น `scenario.instructions.md` ถูกโหลดเข้ามาเองเพราะ filename ตรง glob `**/*scenario*.md`
 
-### Ex2 — Custom Prompt `/create-tc`
+### 🛠️ Skill — `create-scenario` (สร้าง scenario) · *Session 3*
+> **หัวใจของ demo** — ต้องมี scenario ก่อน ถึงจะทำ Ex2 `/create-tc` ในขั้นถัดไปได้
+1. เรียก skill `create-scenario` ในโหมด Agent
+2. Copilot อ่าน `user-flow.md` → หา logic path → สร้าง `scenario-[id]-[name].md` พร้อม AC (Given/When/Then)
+3. สร้าง/อัปเดต `scenarios.md` เป็น index
+4. เปิดไฟล์ scenario ที่ได้ → ยืนยันว่าไม่มี implementation detail (เคารพ instruction จาก Ex1)
+
+### Ex2 — Custom Prompt `/create-tc` · *Session 4*
 1. พิมพ์ `/create-tc` ใน Copilot Chat
 2. ใส่ scenario ID (เช่น `01`)
 3. ดู Copilot อ่าน scenario → สร้าง TC ตาม format → append ลง `business-tc.md`
 
-### Ex3 — Custom Prompt `/review-coverage`
+### Ex3 — Custom Prompt `/review-coverage` · *Session 4*
 1. พิมพ์ `/review-coverage`
 2. ดู coverage report เป็น checklist ✅ / ❌ และ % coverage เทียบกับ logic path ใน user-flow
 
-### Ex4 — MCP GitHub
+### Ex4 — MCP GitHub + Agent · *Session 5*
 1. ตรวจว่า sign in GitHub แล้ว + รู้ repo เป้าหมาย (ดู SETUP.md)
 2. สั่ง Copilot (โหมด Agent):
    > "อ่าน business-tc.md แล้วสร้าง GitHub Issue หนึ่งอันต่อหนึ่ง TC ใน repo `TGA88/copilot-workshop-issues-demo`"
