@@ -5,6 +5,8 @@ argument-hint: "[path ของ business-tc.md (ออปชัน)]"
 # context: fork = รัน skill นี้ใน subagent แยก → body + การอ่าน references + output ของ
 #   script เกิดใน context แยก แล้วส่งกลับ main chat "แค่รายงานสุดท้าย" → main context ไม่บวม
 #   เหมาะกับ skill หนัก ๆ ที่มี script + references แบบนี้ (ดู docs/context-loading.md)
+#   ⚠️ vendor-specific: ทำงานบน Copilot / Claude Code · Codex จะ ignore แล้วรัน inline
+#   (skill ยังทำงานได้ทุก agent — แค่จะไม่ fork บน agent ที่ไม่รองรับ)
 context: fork
 # หมายเหตุ: frontmatter ยังมี field อื่นอีก (allowed-tools, model, user-invocable, ...)
 # ดูครบที่ docs/agent-skills-reference.md — ตรงนี้ใช้แค่ที่ GitHub Copilot รองรับ
